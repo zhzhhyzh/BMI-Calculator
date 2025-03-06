@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:myfirstpplication/info.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -196,12 +198,22 @@ void _resetScreen(){
 
             ),
             Expanded(child: SizedBox(height: double.infinity)),
+            IconButton(icon:Icon(Icons.info),
+            iconSize:48,
+            color: Colors.orangeAccent,
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Info(bmi:_bmiOutput,)));
+            },
+            ),
+            Expanded(child: SizedBox(height: double.infinity)),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(onPressed: _resetScreen, child: Text('Reset')),
-                ElevatedButton(onPressed: _calculateBMI, child: Text('Calculate'))
-              ]
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(onPressed: _resetScreen, child: Text('Reset')),
+                  ElevatedButton(onPressed: _calculateBMI, child: Text('Calculate'))
+                ]
             )
           ],
         ),
